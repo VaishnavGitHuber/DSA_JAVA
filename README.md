@@ -11,6 +11,7 @@ This repository provides a concise guide to Java programming, covering fundament
 3. [String Built-in Functions](#3-string-built-in-functions)
 4. [Conditional Statements](#4-conditional-statements)
 5. [Iteration Statements](#5-iteration-statements)
+6. [Functions in java](#6-Functions-in-Java) 
 
 ---
 
@@ -201,4 +202,28 @@ public class Main
 	}
 }
 
+```
+## 6. Functions in Java 
+```
+public class Main
+{
+	public static void main(String[] args) {
+		/* Functions : Block of code which results a meaningful activity 
+		1. Functions with parameter and with returning value 
+		2. Function with parameter and with out returning value
+		3. Function without parameter and with returning value 
+		4. Function without parameter and with out returning value 
+		*/
+		float sum;
+		sum(); // function call
+		
+	}
+	
+	static void sum(){ // function definition
+	float num1 = 45.3f, num2 = 34.5f;
+	    float sum;
+	    sum = num1 + num2;
+	    System.out.println("Sum of numbers: " + sum);
+	}
+}
 ```
