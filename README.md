@@ -11,7 +11,9 @@ This repository provides a concise guide to Java programming, covering fundament
 3. [String Built-in Functions](#3-string-built-in-functions)
 4. [Conditional Statements](#4-conditional-statements)
 5. [Iteration Statements](#5-iteration-statements)
-6. [Functions in java](#6-Functions-in-Java) 
+6. [Functions in java](#6-Functions-in-Java)
+7. [Objects and classes](#7-Creating-class-and-objects)
+8. [Constructors](#8-Constructors)
 
 ---
 
@@ -227,3 +229,63 @@ public class Main
 	}
 }
 ```
+## 7. Creating class and objects
+```
+public class Main
+{
+	public static void main(String[] args) {
+		// creating objects
+		// syntax object creation: class_name object_name = new class_name()
+		Bank sbi = new Bank();
+		sbi.name = "SBI";
+		sbi.location = "Banglore";
+		sbi.print_details();
+		
+		Bank canera = new Bank();
+		canera.name = "CANERA";
+		canera.location = "Hydrabad";
+		canera.print_details();
+		
+	}
+}
+
+class Bank { // class definition
+    String name,location;
+    
+    void print_details(){
+        System.out.println("Name of the bank is "+ name + "\nLoacation: "+ location);
+    }
+}
+```
+8. Constructors
+```
+public class Main
+{
+	public static void main(String[] args) {
+		/* Constructors: special function, which executes when a object is created
+		types 
+		1. Default constructor 
+		2. Paremterised constructor 
+		*/
+		Bank sbi = new Bank("SBI","Banglore");
+		sbi.print_details();
+		Bank union = new Bank("UNION","Kerala");
+		union.print_details();
+	}
+}
+
+class Bank { 
+    String name,location;
+    
+    // syntax for constructor class_name(paramter){}
+    Bank(String bank_name, String bank_location){
+        this.name = bank_name;
+        this.location = bank_location;
+    }
+    
+    void print_details(){
+        System.out.println("Name of the bank is "+ name + " & Loacation: "+ location);
+    }
+}
+```
+
