@@ -14,6 +14,7 @@ This repository provides a concise guide to Java programming, covering fundament
 6. [Functions in java](#6-Functions-in-Java)
 7. [Objects and classes](#7-Creating-class-and-objects)
 8. [Constructors](#8-Constructors)
+9. [Inheritance](#9-Inheritance)
 
 ---
 
@@ -285,6 +286,91 @@ class Bank {
     
     void print_details(){
         System.out.println("Name of the bank is "+ name + " & Loacation: "+ location);
+    }
+}
+```
+## 9. Inheritance
+```
+/* 
+inheritance: creating a class from an existing class
+types: 
+1. Single ingeritance : Single parent & single child 
+2. Multiple inheritance : Multiple parant & single child (can't achieved using java)
+3. Multilevel inheritance : Single grand parant & Single parant & single child
+4. Heirarchial inheritance : Sigle parant & Multiple childs 
+5. Hybrid inheritance 
+*/
+public class Main
+{
+	public static void main(String[] args) {
+		C c = new C();
+		System.out.println("c.nameA: "+c.nameA);
+		System.out.println("c.nameA: "+c.nameB);
+		System.out.println("c.nameA: "+c.nameC);
+		c.displayA();
+		c.displayB();
+		c.displayC();
+	}
+}
+
+
+// Multilevel & Single level
+
+class A{
+    // attributes 
+    String nameA = "A";
+    
+    // Method
+    void displayA(){
+        System.out.println("I am A");
+    }
+}
+
+// syntax : extends class_name 
+class B extends A{
+    // attributes 
+    String nameB = "B";
+    
+    // Method
+    void displayB(){
+        System.out.println("I am B");
+    }
+}
+
+class C extends B {
+    // attributes 
+    String nameC = "C";
+    
+    // Method
+    void displayC(){
+        System.out.println("I am C");
+    }
+}
+
+// Heirarchial Inheritance
+
+class A { 
+    String nameA = "A";
+    
+    void displayA(){
+        System.out.println("I am A");
+    }
+}
+
+
+class B extends A{
+    String nameB = "B";
+    
+    void displayB(){
+        System.out.println("I am B");
+    }
+}
+
+class C extends A{
+    String nameC = "C";
+    
+    void displayC(){
+        System.out.println("I am C");
     }
 }
 ```
