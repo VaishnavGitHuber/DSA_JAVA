@@ -15,6 +15,10 @@ This repository provides a concise guide to Java programming, covering fundament
 7. [Objects and classes](#7-Creating-class-and-objects)
 8. [Constructors](#8-Constructors)
 9. [Inheritance](#9-Inheritance)
+10. [This keyword](#10-This-keyword)
+11. [Super Keyword](#11-Super-keyword)
+12. [Polymorphism: Method overloading & Method Overriding](#12-Polymorphism)
+13. [Examples](#13-Example-problems)
 
 ---
 
@@ -374,4 +378,166 @@ class C extends A{
     }
 }
 ```
+## 10. This-keyword
+```
+// Topic : This Keyword
+public class Main
+{
+	public static void main(String[] args) {
+		// Syntax for creating objects: Class_name obeject_name = new Class_name();
+		Bank sbi = new Bank("SBI",45000f);
+		
+		sbi.print_details();
+		
+	}
+}
 
+// Bank class 
+class Bank{
+    String name;
+    float balance;
+    // Parameterized Constructors
+    Bank(String name, float balance){ // if parameter names & instance names are same: use this keyword
+        this.name = name;
+        this.balance = balance;
+    }
+    
+    // print_details 
+    void print_details(){
+        System.out.println("Bank Name: "+ this.name + " | Bank Banalce: "+ this.balance);
+    }
+}
+```
+## 11. Super Keyword
+```
+// Super key word 
+public class Main
+{
+	public static void main(String[] args) {
+		Child c = new Child("VAISHNAV","AJAY");
+		c.display_info();
+	}
+}
+
+class Parent {
+    String name;
+    // constructor
+    Parent(String name){
+        this.name = name;
+        //System.out.println("Parent constructor is called... " + name);
+    }
+    // function: display_info_parent
+    void display_info(){
+        System.out.println("PARANT CLASS FN IS CALLED");
+    }
+}
+
+
+
+
+class Child extends Parent{
+    String name;
+    // constructor 
+    Child(String c_name,String p_name){
+        super(p_name); // calling parent constructor using this keyword 
+        this.name  = c_name ;
+        //System.out.println("Child constructor is called... " + name);
+    }
+    // function : display_info_child
+    void display_info(){
+        super.display_info(); // fn calling using super keyword 
+        System.out.println("CHILD CLASS FN IS CALLED");
+    }
+}
+```
+## 12. Polymorphism 
+```
+/* 
+Polymorphism: ability to take multiple forms 
+- Ways to achieve polymorphism 
+1. Method overloading : same function name but differ in parameter 
+2. Method overriding : same function name & attributes in base and sub class
+*/
+
+// Method Overloading: Example
+public class Main
+{
+	public static void main(String[] args) {
+		Mathematics math = new Mathematics();
+		math.sum(3,5); // output: 3 + 5 = 8
+		math.sum(2,4,5); // output: 5 + 4 + 2 = 11
+	}
+}
+
+class Mathematics {
+    // function1: sum 
+    void sum(int num1, int num2){
+        int sum = num1 + num2;
+        // output
+        System.out.println("Sum of 2 numbers: " + sum);
+    }
+    
+    // function2: sum
+    void sum(int num1, int num2, int num3){
+        int sum = num1 + num2 + num3;
+        // output
+        System.out.println("Sum of 3 numbers: " + sum);
+    }
+}
+
+
+// Method overriding
+public class Main
+{
+	public static void main(String[] args) {
+		Child c = new Child("A","B");
+		c.display_info();
+	}
+}
+
+
+class Parent {
+    // attributes 
+    String name;
+    
+    // constructor : parent 
+    Parent(String p_name){
+        this.name = p_name;
+    }
+    // Display function 
+    void display_info(){
+        System.out.println("PARENT CLASS NAME: "+this.name);
+    }
+}
+
+
+class Child extends Parent{
+    // attibutes 
+    String name;
+    
+    Child(String c_name,String p_name){
+        super(p_name); // parent constructor
+        this.name  = c_name;
+    }
+    
+    void display_info(){
+        super.display_info();// super keyword: calling parent function
+        System.out.println("CHILD CLASS NAME: "+this.name);
+    }
+    
+}
+
+```
+## 13. Example problems
+```
+class & objects : Questions 
+Create a class Book with attributes book_name, author, price, 
+with methods get_details(), get_price(), update_price(price)
+
+Create a class Car with attributes car_name, brand, price
+with methods get_price(), update_price(), print_details()
+
+polymorphism & inheritance: Questions
+create a class shape, then inherit the shape class rectangle, circle.
+use area() method in both class to find the aree of the shape and illustrate the polymorphsm concept.
+```
